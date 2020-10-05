@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 class SplashActivity : AppCompatActivity() {
     private val handler = Handler()
@@ -17,6 +20,10 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCenter.start(
+            application, "2c5e799d-c275-4a33-88eb-acd46b3312d8",
+            Analytics::class.java, Crashes::class.java
+        )
         setContentView(R.layout.activity_splash)
         // Call runnable after 1000ms (1second) of SplashActivity display to transition to MainActivity
         handler.postDelayed(runnable, 1000)
