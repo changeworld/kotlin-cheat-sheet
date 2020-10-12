@@ -35,3 +35,35 @@ jobs:
         run: chmod +x ./gradlew
       - name: Build with Gradle
         run: ./gradlew build
+
+  danger:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install Danger
+        run: |
+          gem install danger
+          gem install danger-android_lint
+          gem install nokogiri
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Run Android Lint
+        run: ./gradlew lintDebug
+      - name: Cache Gems
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-danger-${{ env.cache-name }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-danger-${{ env.cache-name }}-gems-
+            ${{ runner.os }}-danger-${{ env.cache-name }}-
+            ${{ runner.os }}-danger-
+      - name: run danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: danger
