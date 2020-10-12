@@ -63,3 +63,7 @@ jobs:
             ${{ runner.os }}-danger-${{ env.cache-name }}-gems-
             ${{ runner.os }}-danger-${{ env.cache-name }}-
             ${{ runner.os }}-danger-
+      - name: Run danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: danger
