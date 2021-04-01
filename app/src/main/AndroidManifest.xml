@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullUser"></activity>
+            android:screenOrientation="fullUser" />
     </application>
 
 </manifest>
