@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Kotlin Cheat Sheet</string>
     <string name="splash_screen_text">Splash Screen!</string>
+    <string name="title_fuel_download">Fuel download</string>
 </resources>
