@@ -21,6 +21,9 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="fullUser" />
+        <activity
+            android:name=".FuelDownloadActivity"
+            android:screenOrientation="fullUser" />
     </application>
 
 </manifest>
