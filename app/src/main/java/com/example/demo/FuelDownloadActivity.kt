@@ -16,5 +16,7 @@ class FuelDownloadActivity : AppCompatActivity() {
             // Finish　FuelDownloadActivity
             finish()
         }
+        val fuelDownloadText: TextView = findViewById(R.id.fuel_download_get_string)
+        fuelDownloadText.text = FuelDownloader().download()
     }
 }
