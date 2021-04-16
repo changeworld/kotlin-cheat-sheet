@@ -13,9 +13,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.fuelDownloadActivity.setOnClickListener {
+            // Transition to FuelDownloadActivity
             val intent = Intent(application, FuelDownloadActivity::class.java)
             startActivity(intent)
-            // Finish　MainActivity
+            // Finish MainActivity
             finish()
         }
     }

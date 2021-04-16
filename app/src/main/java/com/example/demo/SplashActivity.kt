@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         // Transition to MainActivity
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        // Finish　SplashActivity
+        // Finish SplashActivity
         finish()
     }
 
