@@ -2,21 +2,22 @@ package com.example.demo
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.demo.databinding.ActivityFuelDownloadBinding
 
 class FuelDownloadActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFuelDownloadBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fuel_download)
-        val back: TextView = findViewById(R.id.back)
-        back.setOnClickListener {
+        binding = ActivityFuelDownloadBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.back.setOnClickListener {
             val intent = Intent(application, MainActivity::class.java)
             startActivity(intent)
             // Finish　FuelDownloadActivity
             finish()
         }
-        val fuelDownloadText: TextView = findViewById(R.id.fuel_download_get_string)
-        fuelDownloadText.text = FuelDownloader().download()
+        binding.fuelDownloadGetString.text = FuelDownloader().download()
     }
 }
