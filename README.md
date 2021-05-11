@@ -5,4 +5,4 @@
 
 ## Licensing
 
-Code in this repository is licensed under the Apache 2.0. See [LICENSE](LICENSE).
+The repository code is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT). See [LICENSE](LICENSE).
